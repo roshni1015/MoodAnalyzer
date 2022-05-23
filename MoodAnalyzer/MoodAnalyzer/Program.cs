@@ -27,6 +27,11 @@ while (true)
             string result3 = analyse3.analyseMood(null);
             Console.WriteLine(result3);
             break;
+        case 4:
+            UsingcustomExceptions analyse4 = new();
+            string result4 = analyse4.analyseMood("");
+            Console.WriteLine(result4);
+            break;
         default:
             Console.WriteLine("Please Choose Correct Option");
             break;
