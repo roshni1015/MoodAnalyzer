@@ -2,14 +2,36 @@
 using MoodAnalyzer;
 
 Console.WriteLine("Welcome to Mood Analyzer Problem!");
-MoodAnalyser analyse = new();
-string result = analyse.analyseMood("I am in Happy mood");
-Console.WriteLine(result);
+while (true)
+{
+    Console.WriteLine("Please choose the option :\n1)Happy or SAD Mood\n2)Using the Default and Parametterized Constructor\n3)Exception");
+    int option = Convert.ToInt16(Console.ReadLine());
+    switch (option)
+    {
+        case 1:
+            MoodAnalyser analyse = new();
+            string result = analyse.analyseMood("I am in Happy mood");
+            Console.WriteLine(result);
+            break;
+        case 2:
+            MoodAnalyzerusingConstructor analyse1 = new();
+            string result1 = analyse1.analyseMood1();
+            Console.WriteLine("Mood is (Using Default Constructor) : " + result1);
 
-MoodAnalyzerusingConstructor analyse1 = new();
-string result1 = analyse1.analyseMood1();
-Console.WriteLine("Mood is (Using Default Constructor) : " + result1);
+            MoodAnalyzerusingConstructor analyse2 = new();
+            string result2 = analyse2.analyseMood1();
+            Console.WriteLine("Mood is (Using Parameterized Constructor) : " + result2);
+            break;
+        case 3:
+            UsingExceptions analyse3 = new();
+            string result3 = analyse3.analyseMood(null);
+            Console.WriteLine(result3);
+            break;
+        default:
+            Console.WriteLine("Please Choose Correct Option");
+            break;
+    }
+}
+         
 
-MoodAnalyzerusingConstructor analyse2 = new();
-string result2 = analyse2.analyseMood1();
-Console.WriteLine("Mood is (Using Parameterized Constructor) : " + result2);
+
