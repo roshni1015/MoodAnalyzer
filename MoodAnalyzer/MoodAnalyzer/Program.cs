@@ -4,7 +4,7 @@ using MoodAnalyzer;
 Console.WriteLine("Welcome to Mood Analyzer Problem!");
 while (true)
 {
-    Console.WriteLine("Please choose the option :\n1)Happy or SAD Mood\n2)Using the Default and Parametterized Constructor\n3)Exception");
+    Console.WriteLine("Please choose the option :\n1)Happy or SAD Mood\n2)Using the Default and Parametterized Constructor\n3)Exception\n4)Custom Exception");
     int option = Convert.ToInt16(Console.ReadLine());
     switch (option)
     {
