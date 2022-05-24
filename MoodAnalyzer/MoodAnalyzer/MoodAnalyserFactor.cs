@@ -33,6 +33,22 @@ namespace MoodAnalyzer
             }
 
         }
+        public static string Invokeanalysemood(string message, string method)
+        {
+            try
+            {
+                Type type = Type.GetType("MoodAnalyzer.MoodAnalyser");
+                object moodAnalyseObject = MoodanalayserParameterizedConstructor.UsingParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser", message);
+                MethodInfo analyseMoodInfo = type.GetMethod(method);
+                object mood = analyseMoodInfo.Invoke(moodAnalyseObject, null);
+                return mood.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomException(CustomException.ExceptionType.NoSuchMethod, "Method is Not Found");
+            }
+
+        }
     }
     public class MoodanalayserParameterizedConstructor
     {

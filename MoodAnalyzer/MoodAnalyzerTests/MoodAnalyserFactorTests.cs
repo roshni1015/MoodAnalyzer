@@ -55,5 +55,33 @@ namespace MoodAnalyzer.Tests
 
 
         }
+
+        [TestMethod()]
+        public void InvokeanalysemoodTest()
+        {
+            string expected = "Happy";
+            string analyser7 = MoodAnalyserFactor.Invokeanalysemood("Happy", "analyseMood");
+            expected.Equals(analyser7);
+            
+
+        }
+        [TestMethod()]
+        public void InvokeanalysemoodTest1()
+        {
+            string excepted = "Method is Not Found";
+
+            try
+            {
+                string analyser7 = MoodAnalyserFactor.Invokeanalysemood("Happy", "12analyseMood");
+
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(excepted, ex.Message);
+            }
+
+
+
+        }
     }
 }
