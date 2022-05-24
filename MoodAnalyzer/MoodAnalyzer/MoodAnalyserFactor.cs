@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoodAnalyzer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -49,6 +50,27 @@ namespace MoodAnalyzer
             }
 
         }
+        public static string SetField(string message, string fieldName)
+        {
+            try
+            {
+                MoodAnalyser analyseMood = new();
+                Type type = typeof(MoodAnalyser);
+                FieldInfo field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.Instance);
+                if (message == null)
+                {
+                    throw new CustomException(CustomException.ExceptionType.NoSuchField, "Message should not be null");
+                }
+                field.SetValue(analyseMood, message);
+                return analyseMood.msg;
+
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomException(CustomException.ExceptionType.NoSuchField, "Field is Not Found");
+            }
+        }
+    }
     }
     public class MoodanalayserParameterizedConstructor
     {
@@ -74,4 +96,4 @@ namespace MoodAnalyzer
             }
         }
     }
-}
+

@@ -62,7 +62,7 @@ namespace MoodAnalyzer.Tests
             string expected = "Happy";
             string analyser7 = MoodAnalyserFactor.Invokeanalysemood("Happy", "analyseMood");
             expected.Equals(analyser7);
-            
+
 
         }
         [TestMethod()]
@@ -73,6 +73,51 @@ namespace MoodAnalyzer.Tests
             try
             {
                 string analyser7 = MoodAnalyserFactor.Invokeanalysemood("Happy", "12analyseMood");
+
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(excepted, ex.Message);
+            }
+
+
+
+        }
+
+        [TestMethod()]
+        public void SetFieldTest()
+        {
+            string expected = "Happy";
+            string analyser8 = MoodAnalyserFactor.SetField("Happy", "msg");
+            expected.Equals(analyser8);
+
+        }
+        [TestMethod()]
+        public void SetFieldTest1()
+        {
+            string excepted = "Field is Not Found";
+
+            try
+            {
+                string analyser8 = MoodAnalyserFactor.SetField("Happy", "msg123");
+
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(excepted, ex.Message);
+            }
+
+
+
+        }
+        [TestMethod()]
+        public void SetFieldTest2()
+        {
+            string excepted = "Message should not be null";
+
+            try
+            {
+                string analyser8 = MoodAnalyserFactor.SetField(null, "msg");
 
             }
             catch (CustomException ex)
