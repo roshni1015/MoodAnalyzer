@@ -18,7 +18,7 @@ namespace MoodAnalyzer.Tests
 
             try
             {
-                object analyser5 = MoodAnalyserFactor.CreateMoodanalyser("123MoodAnalyser.UsingcustomExceptions", "UsingcustomExceptions");
+                object analyser5 = MoodAnalyserFactor.CreateMoodanalyser("123MoodAnalyzer.UsingcustomExceptions", "UsingcustomExceptions");
 
             }
             catch (CustomException ex)
@@ -32,7 +32,7 @@ namespace MoodAnalyzer.Tests
         public void Moodanalysertest1()
         {
             object excepted = new UsingcustomExceptions();
-            object result = MoodAnalyserFactor.CreateMoodanalyser("MoodAnalyser.UsingcustomExceptions", "UsingcustomExceptions");
+            object result = MoodAnalyserFactor.CreateMoodanalyser("MoodAnalyzer.UsingcustomExceptions", "UsingcustomExceptions");
             excepted.Equals(result);
 
 
@@ -44,7 +44,7 @@ namespace MoodAnalyzer.Tests
 
             try
             {
-                object analyser5 = MoodAnalyserFactor.CreateMoodanalyser("MoodAnalyser.UsingcustomExceptions", "UsingcustomExceptions123");
+                object analyser5 = MoodAnalyserFactor.CreateMoodanalyser("MoodAnalyzer.UsingcustomExceptions", "UsingcustomExceptions123");
 
             }
             catch (CustomException ex)

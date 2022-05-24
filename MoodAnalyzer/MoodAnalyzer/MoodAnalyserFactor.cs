@@ -34,4 +34,28 @@ namespace MoodAnalyzer
 
         }
     }
+    public class MoodanalayserParameterizedConstructor
+    {
+        public static object UsingParameterizedConstructor(string className, string constructorName, string message)
+        {
+            Type type = typeof(MoodAnalyser);
+            if (type.Name.Equals(className) || type.FullName.Equals(className))
+            {
+                if (type.Name.Equals(constructorName))
+                {
+                    ConstructorInfo cnstr = type.GetConstructor(new[] { typeof(string) });
+                    object instance = cnstr.Invoke(new object[] { message });
+                    return instance;
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.NoSuchConstructor, "Constructor is not found");
+                }
+            }
+            else
+            {
+                throw new CustomException(CustomException.ExceptionType.NoSuchClass, "Class not found");
+            }
+        }
+    }
 }

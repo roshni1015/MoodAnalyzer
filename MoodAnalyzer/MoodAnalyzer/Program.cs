@@ -4,13 +4,13 @@ using MoodAnalyzer;
 Console.WriteLine("Welcome to Mood Analyzer Problem!");
 while (true)
 {
-    Console.WriteLine("Please choose the option :\n1)Happy or SAD Mood\n2)Using the Default and Parametterized Constructor\n3)Exception\n4)Custom Exception\n5)Using Reflection with Default Constructor");
+    Console.WriteLine("Please choose the option :\n1)Happy or SAD Mood\n2)Using the Default and Parametterized Constructor\n3)Exception\n4)Custom Exception\n5)Using Reflection with Default Constructor\n6)Using Reflection Parameterized Constructor");
     int option = Convert.ToInt16(Console.ReadLine());
     switch (option)
     {
         case 1:
             MoodAnalyser analyse = new();
-            string result = analyse.analyseMood("I am in Happy mood");
+            string result = analyse.analyseMood();
             Console.WriteLine(result);
             break;
         case 2:
@@ -35,6 +35,10 @@ while (true)
         case 5:
             object analyser5 = MoodAnalyserFactor.CreateMoodanalyser("MoodAnalyser.Usingcustomxceptions", "UsingcustomExceptions");
             Console.WriteLine(analyser5);
+            break;
+        case 6:
+            object analyser6 = MoodanalayserParameterizedConstructor.UsingParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser123", "Happy");
+            Console.WriteLine(analyser6);
             break;
         default:
             Console.WriteLine("Please Choose Correct Option");
